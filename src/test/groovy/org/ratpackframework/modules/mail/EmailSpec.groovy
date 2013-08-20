@@ -40,7 +40,7 @@ class EmailSpec extends Specification {
 
     def "can send email with greenmail"() {
         when:
-        GreenMailUtil.sendTextEmailTest("to@localhost.com", "from@localhost.com", "subject", "body");
+        GreenMailUtil.sendTextEmailTest("to@localhost.com", "from@localhost.com", "subject", "body")
 
         then:
         greenMail.getReceivedMessages()[0].getSubject() == "subject"
@@ -63,7 +63,7 @@ class EmailSpec extends Specification {
         service.send(email)
 
         then:
-        Message[] messages = greenMail.getReceivedMessages();
+        Message[] messages = greenMail.getReceivedMessages()
         messages.size() == 1
         messages[0].subject == "test message"
     }
