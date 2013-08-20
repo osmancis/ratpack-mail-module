@@ -10,6 +10,7 @@ dependencies {
     compile 'javax.mail:mail:1.4.7'
 
     testCompile 'com.icegreen:greenmail:1.3.1b'
+    testCompile 'org.spockframework:spock-core:0.6-groovy-1.8'
 }
 
 group = 'org.ratpack-framework.modules'
