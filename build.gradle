@@ -1,0 +1,99 @@
+apply plugin: 'groovy'
+
+repositories {
+    maven { url "http://oss.jfrog.org/repo" }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.ratpack-framework:ratpack-guice:0.9.0-SNAPSHOT'
+    compile 'javax.mail:mail:1.4.7'
+
+    testCompile 'com.icegreen:greenmail:1.3.1b'
+}
+
+group = 'org.ratpack-framework.modules'
+archivesBaseName = 'ratpack-mail-module'
+version = '0.1.0'
+
+apply plugin: 'distribution'
+
+distributions {
+    main {
+        baseName = archivesBaseName
+        contents {
+            from {
+                libsDir
+            }
+        }
+    }
+}
+
+ext {
+    bintrayBaseUrl = 'https://api.bintray.com/maven'
+    bintrayUsername = 'stefanogualdi'
+    bintrayRepository = 'ratpack-modules'
+    bintrayPackage = 'ratpack-mail-module'
+}
+
+apply plugin: 'maven-publish'
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+publishing {
+    publications {
+        plugin(MavenPublication) {
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('name', 'Ratpack Mail module')
+                root.appendNode('description', 'Ratpack Mail module - send email from ratpack app')
+                root.appendNode('inceptionYear', '2013')
+
+                def license = root.appendNode('licenses').appendNode('license')
+                license.appendNode('name', 'The Apache Software License, Version 2.0')
+                license.appendNode('url', 'http://www.apache.org/licenses/LICENSE-2.0.txt')
+                license.appendNode('distribution', 'repo')
+
+                def developer = root.appendNode('developers').appendNode('developer')
+                developer.appendNode('id', 'stefanogualdi')
+                developer.appendNode('name', 'Stefano Gualdi')
+                developer.appendNode('email', 'stefano.gualdi@gmail.com')
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name 'Bintray'
+            url "$bintrayBaseUrl/$bintrayUsername/$bintrayRepository/$bintrayPackage"
+
+            credentials {
+                username = System.getenv('BINTRAY_USERNAME') ?: 'CHANGE_ME'
+                password = System.getenv('BINTRAY_API_KEY') ?: 'CHANGE_ME'
+            }
+        }
+    }
+}
+
+apply plugin: 'idea'
+
+sourceCompatibility = "1.7"
+
+idea {
+    project {
+        jdkName "1.7"
+        languageLevel "1.7"
+    }
+}
+
+wrapper {
+    gradleVersion '1.7'
+}
