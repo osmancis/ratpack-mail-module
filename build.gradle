@@ -17,19 +17,6 @@ group = 'org.ratpack-framework.modules'
 archivesBaseName = 'ratpack-mail-module'
 version = '0.1.0'
 
-apply plugin: 'distribution'
-
-distributions {
-    main {
-        baseName = archivesBaseName
-        contents {
-            from {
-                libsDir
-            }
-        }
-    }
-}
-
 ext {
     bintrayBaseUrl = 'https://api.bintray.com/maven'
     bintrayUsername = 'stefanogualdi'
