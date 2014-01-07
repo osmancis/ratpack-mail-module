@@ -1,19 +1,23 @@
 package org.ratpackframework.modules.mail;
 
-import org.ratpackframework.launch.LaunchConfig;
+import org.ratpackframework.modules.mail.internal.DefaultMailConfig;
+import org.ratpackframework.modules.mail.internal.DefaultMailService;
+import ratpack.launch.LaunchConfig;
 import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
 
 public class MailModule extends AbstractModule {
 
-    private final LaunchConfig launchConfig;
-
-	public MailModule(LaunchConfig launchConfig) {
-        this.launchConfig = launchConfig;
-    }
-
 	@Override
     protected void configure() {
-        MailConfig config = new MailConfig();
+        bind(MailService.class).to(DefaultMailService.class);
+    }
+
+    @SuppressWarnings("UnusedDeclaration")
+    @Provides
+    MailConfig provideMailConfig(LaunchConfig launchConfig) {
+        MailConfig config = new DefaultMailConfig();
+
         config.setHost(launchConfig.getOther("mail.host", "localhost"));
         config.setPort(Integer.parseInt(launchConfig.getOther("mail.port", "25")));
         config.setProtocol(launchConfig.getOther("mail.protocol", "smtp"));
@@ -23,6 +27,7 @@ public class MailModule extends AbstractModule {
         config.setStarttls(Boolean.parseBoolean(launchConfig.getOther("mail.starttls", "false")));
         config.setChannel(launchConfig.getOther("mail.channel", "plain"));
         config.setDebug(Boolean.parseBoolean(launchConfig.getOther("mail.debug", "false")));
-        bind(MailService.class).toInstance(new MailService(config));
+
+        return config;
     }
 }

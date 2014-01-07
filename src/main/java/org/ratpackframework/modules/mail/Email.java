@@ -1,5 +1,6 @@
 package org.ratpackframework.modules.mail;
 
+import java.io.File;
 import java.util.Set;
 
 /**
@@ -12,6 +13,8 @@ public interface Email {
     Email bcc(String address);
     Email subject(String subject);
     Email text(String body);
+    Email attach(String filename);
+    Email attach(File filename);
 
     String getFromAddress();
    	Set<String> getToAddresses();

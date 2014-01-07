@@ -5,8 +5,8 @@ import com.icegreen.greenmail.util.GreenMailUtil
 import com.icegreen.greenmail.util.ServerSetupTest
 import org.ratpackframework.modules.mail.Email
 import org.ratpackframework.modules.mail.EmailMessage
-import org.ratpackframework.modules.mail.MailConfig
-import org.ratpackframework.modules.mail.MailService
+import org.ratpackframework.modules.mail.internal.DefaultMailConfig
+import org.ratpackframework.modules.mail.internal.DefaultMailService
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -48,10 +48,10 @@ class EmailSpec extends Specification {
 
     def "can send email with internal service"() {
         setup:
-        def mailConfig = new MailConfig()
+        def mailConfig = new DefaultMailConfig()
         mailConfig.setHost("localhost")
         mailConfig.setPort(greenMail.getSmtp().getPort())
-        def service = new MailService(mailConfig)
+        def service = new DefaultMailService(mailConfig)
 
         Email email = new EmailMessage()
         email.from("me@me.org")

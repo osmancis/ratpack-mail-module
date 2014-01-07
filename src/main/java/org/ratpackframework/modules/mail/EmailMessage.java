@@ -2,6 +2,7 @@ package org.ratpackframework.modules.mail;
 
 import com.google.common.base.Objects;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -47,6 +48,16 @@ public class EmailMessage implements Email {
         return this;
     }
 
+    public Email attach(String filename) {
+        this.attachments.add(filename);
+        return this;
+    }
+
+    public Email attach(File filename) {
+        this.attachments.add(filename.getAbsolutePath());
+        return this;
+    }
+
     public String getFromAddress() {
         return fromAddress;
     }
@@ -83,6 +94,7 @@ public class EmailMessage implements Email {
                 .add("ccAddress", ccAddresses)
                 .add("bccAddress", bccAddresses)
                 .add("subject", subject)
+                .add("attachments", attachments)
                 .toString();
     }
 }
