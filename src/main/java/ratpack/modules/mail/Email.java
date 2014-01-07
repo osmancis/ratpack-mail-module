@@ -1,4 +1,4 @@
-package org.ratpackframework.modules.mail;
+package ratpack.modules.mail;
 
 import java.io.File;
 import java.util.Set;

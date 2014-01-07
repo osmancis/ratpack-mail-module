@@ -1,7 +1,7 @@
-package org.ratpackframework.modules.mail.internal;
+package ratpack.modules.mail.internal;
 
 import com.google.common.base.Objects;
-import org.ratpackframework.modules.mail.MailConfig;
+import ratpack.modules.mail.MailConfig;
 
 public class DefaultMailConfig implements MailConfig {
 

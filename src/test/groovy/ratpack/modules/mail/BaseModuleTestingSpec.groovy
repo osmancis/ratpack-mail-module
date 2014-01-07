@@ -1,4 +1,4 @@
-package org.ratpackframework.modules.mail
+package ratpack.modules.mail
 
 import java.nio.file.Files
 import ratpack.test.embed.BaseDirBuilder

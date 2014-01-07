@@ -1,4 +1,4 @@
-package org.ratpackframework.modules.mail.internal;
+package ratpack.modules.mail.internal;
 
 import com.sun.mail.smtp.SMTPTransport;
 import javax.activation.DataHandler;
@@ -14,9 +14,9 @@ import javax.mail.internet.MimeMultipart;
 import java.util.Calendar;
 import java.util.Properties;
 
-import org.ratpackframework.modules.mail.MailConfig;
-import org.ratpackframework.modules.mail.MailService;
-import org.ratpackframework.modules.mail.Email;
+import ratpack.modules.mail.MailConfig;
+import ratpack.modules.mail.MailService;
+import ratpack.modules.mail.Email;
 
 import javax.inject.Inject;
 

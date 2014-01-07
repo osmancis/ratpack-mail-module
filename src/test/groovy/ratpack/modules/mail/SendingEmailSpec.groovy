@@ -1,4 +1,4 @@
-package org.ratpackframework.modules.mail
+package ratpack.modules.mail
 
 import ratpack.form.UploadedFile
 import static ratpack.form.Forms.form

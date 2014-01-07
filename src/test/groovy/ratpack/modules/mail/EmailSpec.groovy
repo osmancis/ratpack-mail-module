@@ -1,12 +1,12 @@
-package org.ratpackframework.modules.mail
+package ratpack.modules.mail
 
 import com.icegreen.greenmail.util.GreenMail
 import com.icegreen.greenmail.util.GreenMailUtil
 import com.icegreen.greenmail.util.ServerSetupTest
-import org.ratpackframework.modules.mail.Email
-import org.ratpackframework.modules.mail.EmailMessage
-import org.ratpackframework.modules.mail.internal.DefaultMailConfig
-import org.ratpackframework.modules.mail.internal.DefaultMailService
+import ratpack.modules.mail.Email
+import ratpack.modules.mail.EmailMessage
+import ratpack.modules.mail.internal.DefaultMailConfig
+import ratpack.modules.mail.internal.DefaultMailService
 import spock.lang.Shared
 import spock.lang.Specification
 

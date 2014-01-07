@@ -1,4 +1,4 @@
-package org.ratpackframework.modules.mail
+package ratpack.modules.mail
 
 import com.icegreen.greenmail.util.GreenMail
 import com.icegreen.greenmail.util.ServerSetupTest

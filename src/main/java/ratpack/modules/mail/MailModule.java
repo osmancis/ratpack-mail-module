@@ -1,7 +1,7 @@
-package org.ratpackframework.modules.mail;
+package ratpack.modules.mail;
 
-import org.ratpackframework.modules.mail.internal.DefaultMailConfig;
-import org.ratpackframework.modules.mail.internal.DefaultMailService;
+import ratpack.modules.mail.internal.DefaultMailConfig;
+import ratpack.modules.mail.internal.DefaultMailService;
 import ratpack.launch.LaunchConfig;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
