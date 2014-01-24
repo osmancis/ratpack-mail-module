@@ -40,5 +40,5 @@ apply from: "gradle/idea/idea.gradle"
 apply from: "gradle/checkstyle/checkstyle.gradle"
 
 wrapper {
-    gradleVersion '1.7'
+    gradleVersion '1.10'
 }
