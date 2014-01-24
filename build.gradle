@@ -1,17 +1,17 @@
 apply plugin: 'groovy'
 
 repositories {
-    maven { url "http://oss.jfrog.org/repo" }
-    mavenCentral()
+  maven { url "http://oss.jfrog.org/repo" }
+  mavenCentral()
 }
 
 dependencies {
-    compile 'io.ratpack:ratpack-guice:0.9.0'
-    compile 'javax.mail:mail:1.4.7'
+  compile 'io.ratpack:ratpack-guice:0.9.0'
+  compile 'javax.mail:mail:1.4.7'
 
-    testCompile 'io.ratpack:ratpack-groovy-test:0.9.0'
-    testCompile 'com.icegreen:greenmail:1.3.1b'
-    testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+  testCompile 'io.ratpack:ratpack-groovy-test:0.9.0'
+  testCompile 'com.icegreen:greenmail:1.3.1b'
+  testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
 }
 
 sourceCompatibility = "1.7"
@@ -22,10 +22,10 @@ archivesBaseName = 'ratpack-mail-module'
 version = '0.1.0'
 
 ext {
-    bintrayBaseUrl = 'https://api.bintray.com/maven'
-    bintrayUsername = 'stefanogualdi'
-    bintrayRepository = 'ratpack-modules'
-    bintrayPackage = 'ratpack-mail-module'
+  bintrayBaseUrl = 'https://api.bintray.com/maven'
+  bintrayUsername = 'stefanogualdi'
+  bintrayRepository = 'ratpack-modules'
+  bintrayPackage = 'ratpack-mail-module'
 
   bintrayProjectName = 'Ratpack Mail module'
   bintrayProjectDescription = 'Ratpack Mail module - send email from ratpack app'
@@ -40,5 +40,5 @@ apply from: "gradle/idea/idea.gradle"
 apply from: "gradle/checkstyle/checkstyle.gradle"
 
 wrapper {
-    gradleVersion '1.10'
+  gradleVersion '1.10'
 }
